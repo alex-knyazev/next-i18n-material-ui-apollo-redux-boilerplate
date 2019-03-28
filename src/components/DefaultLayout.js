@@ -17,7 +17,11 @@ const DefaultLayout = (props) => {
   const { classes, t } = props;
   return (
     <div className={classes.root}>
-      <p>I am trying to use apollo and next i18 next together</p>
+      <p>
+        I am trying to use apollo and next i18 next together. <br />
+        For some reason if you return only UsersCont from Index page component,
+        SSR is not broken
+      </p>
       <p>Here we have Some component with withNamespaces hoc</p>
       <Query query={FILMS_LIST_QUERY}>
         {({ loading, error, data }) => {

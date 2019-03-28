@@ -8,6 +8,8 @@ const IndexPage = (props) => {
       <UsersCont />
     </DefaultLayout>
   );
+  // for some reason if you return only UsersCont, SSR isn't broken
+  // return <UsersCont />;
 };
 
 export default withData(IndexPage);
