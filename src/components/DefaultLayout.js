@@ -28,9 +28,7 @@ const DefaultLayout = (props) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error.message}`;
           const { allUsers } = data;
-          const namesTitle = t('namesTitle');
-
-          return `${namesTitle} amount: ${allUsers.length}`;
+          return <UsersAmountData allUsers={allUsers} />;
         }}
       </Query>
       {props.children}
@@ -38,10 +36,15 @@ const DefaultLayout = (props) => {
   );
 };
 
+const UsersAmountData = withNamespaces('common')((props) => {
+  const namesTitle = props.t('namesTitle');
+  return `${namesTitle} amount: ${props.allUsers.length}`;
+});
+
 const styles = {
   root: {
     margin: 20,
   },
 };
 
-export default withNamespaces('common')(withStyles(styles)(DefaultLayout));
+export default withStyles(styles)(DefaultLayout);
